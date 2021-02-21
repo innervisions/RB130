@@ -73,7 +73,7 @@ class TodoList
   end
 
   def done?
-    @todos.all?(:done?)
+    @todos.all?(&:done?)
   end
 
   def item_at(index)
