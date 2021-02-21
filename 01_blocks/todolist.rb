@@ -111,13 +111,13 @@ class TodoList
   end
 
   def each
-    @todos.each { |todo| yield(todo) }
+    @todos.each { |todo| yield(todo) } if block_given?
     self
   end
 
   def select
     results = TodoList.new(title)
-    each { |todo| results << todo if yield(todo) }
+    each { |todo| results << todo if yield(todo) } if block_given?
     results
   end
 
